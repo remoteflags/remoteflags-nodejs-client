@@ -2,7 +2,7 @@
   "name": "remoteflags-nodejs-client",
   "version": "1.0.0",
   "description": "Remote_Flags_openapi_definition__Public_readonly_API_for_integration_with_Remote_Flags_",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",
@@ -42,5 +42,26 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remoteflags/remoteflags-nodejs-client.git"
+  },
+  "keywords": [
+    "remoteflags",
+    "feature",
+    "flag",
+    "feature",
+    "toggle",
+    "nodejs"
+  ],
+  "author": "remoteflags",
+  "bugs": {
+    "url": "https://github.com/remoteflags/remoteflags-nodejs-client/issues"
+  },
+  "homepage": "https://github.com/remoteflags/remoteflags-nodejs-client#readme"
 }
