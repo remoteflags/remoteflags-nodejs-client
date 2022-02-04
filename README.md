@@ -5,7 +5,7 @@
 # remoteflags-nodejs-client
 [![npm version](https://img.shields.io/npm/v/remoteflags-nodejs-client)](https://www.npmjs.com/package/remoteflags-nodejs-client)
 
-Public readonly API for integration with [Remote Flags](remoteflags.com) . Use to fetch flag status,
+[Remote Flags](remoteflags.com) nodejs sdk to integrate with Public API to fetch flag status.
 
 ## Installation
 #### npm
