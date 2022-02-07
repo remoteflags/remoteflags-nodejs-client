@@ -1,7 +1,7 @@
 {
   "name": "remoteflags-nodejs-client",
-  "version": "1.0.1",
-  "description": "Remote_Flags_openapi_definition__Public_readonly_API_for_integration_with_Remote_Flags_",
+  "version": "1.0.2",
+  "description": "Remote Flags nodejs client. Access Public API for integration withRemote Flags.",
   "license": "Apache-2.0",
   "main": "dist/index.js",
   "scripts": {
@@ -64,5 +64,5 @@
   "bugs": {
     "url": "https://github.com/remoteflags/remoteflags-nodejs-client/issues"
   },
-  "homepage": "https://github.com/remoteflags/remoteflags-nodejs-client#readme"
+  "homepage": "www.remoteflags.com"
 }
