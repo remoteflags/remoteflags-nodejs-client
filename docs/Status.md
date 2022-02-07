@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **String** |  | 
+**value** | **String** | The current flag value as set at remoteflags.com  | 
 
 

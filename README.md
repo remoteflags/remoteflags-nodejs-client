@@ -7,6 +7,8 @@
 
 [Remote Flags](remoteflags.com) nodejs sdk to integrate with Public API to fetch flag status.
 
+For more information on usage checkout our [Docs](https://www.remoteflags.com/docs) page!
+
 ## Installation
 #### npm
 
@@ -28,7 +30,7 @@ const authorizer = defaultClient.authentications['RemoteFlagsAuthorizer'];
 authorizer.apiKey = "<YOUR_API_KEY>"
 
 const api = new remoteflagsClient.PublicApi()
-const ownerId = "<YOUR_OWENER_ID>"; // {String} OwnerID to fetch status for
+const ownerId = "<YOUR_OWNER_ID>"; // {String} OwnerID to fetch status for
 const flagId = "<YOUR_FLAG_ID>"; // {String} FlagId to fetch status for
 
 // optional parameters
