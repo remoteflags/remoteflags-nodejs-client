@@ -5,7 +5,7 @@
 # remoteflags-nodejs-client
 [![npm version](https://img.shields.io/npm/v/remoteflags-nodejs-client)](https://www.npmjs.com/package/remoteflags-nodejs-client)
 
-[Remote Flags](remoteflags.com) nodejs sdk to integrate with Public API to fetch flag status.
+[Remote Flags](https://www.remoteflags.com) nodejs sdk to integrate with Public API to fetch flag status.
 
 For more information on usage checkout our [Docs](https://www.remoteflags.com/docs) page!
 
@@ -23,13 +23,11 @@ npm install remoteflags-nodejs-client --save
 Please follow the [installation](#installation) instruction and execute the following JS code:
 
 ```javascript
-const remoteflagsClient = require('remoteflags-nodejs-client');
 
-const defaultClient = remoteflagsClient.ApiClient.instance;
-const authorizer = defaultClient.authentications['RemoteFlagsAuthorizer'];
-authorizer.apiKey = "<YOUR_API_KEY>"
+const client = require('remoteflags-nodejs-client');
+client.ApiClient.instance.authentications['RemoteFlagsAuthorizer'].apiKey = "<YOUR_API_KEY>";
+const api = new client.PublicApi()
 
-const api = new remoteflagsClient.PublicApi()
 const ownerId = "<YOUR_OWNER_ID>"; // {String} OwnerID to fetch status for
 const flagId = "<YOUR_FLAG_ID>"; // {String} FlagId to fetch status for
 
@@ -42,9 +40,10 @@ const callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('Remote Flags API called successfully. Returned flag status: ' + data.value);
+    console.log('Flag status: ' + data.value);
   }
 };
+
 api.getStatus(ownerId, flagId, opts, callback);
 
 ```
