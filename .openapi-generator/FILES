@@ -1,6 +1,5 @@
 .babelrc
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/PublicApi.md
@@ -12,5 +11,3 @@ src/ApiClient.js
 src/com.remoteflags.api/PublicApi.js
 src/com.remoteflags.model/Status.js
 src/index.js
-test/api/PublicApi.spec.js
-test/model/Status.spec.js

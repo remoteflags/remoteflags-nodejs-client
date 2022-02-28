@@ -80,7 +80,7 @@ export default class PublicApi {
 
       let authNames = ['RemoteFlagsAuthorizer'];
       let contentTypes = [];
-      let accepts = ['application/json'];
+      let accepts = ['text/plain', 'application/json'];
       let returnType = Status;
       return this.apiClient.callApi(
         '/status/owner/{ownerId}/flag/{flagId}', 'GET',
