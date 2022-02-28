@@ -83,7 +83,7 @@ var PublicApi = /*#__PURE__*/function () {
       var formParams = {};
       var authNames = ['RemoteFlagsAuthorizer'];
       var contentTypes = [];
-      var accepts = ['application/json'];
+      var accepts = ['text/plain', 'application/json'];
       var returnType = _Status["default"];
       return this.apiClient.callApi('/status/owner/{ownerId}/flag/{flagId}', 'GET', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null, callback);
     }
