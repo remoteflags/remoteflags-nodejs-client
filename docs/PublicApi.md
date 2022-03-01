@@ -34,13 +34,12 @@ let opts = {
   'segment': "segment_example", // String | The segment to get status from. Required for multi-segment flags. For single segment flag skip this.
   'key': "key_example" // String | An identifier to be a key to associate the status with. This is used on flag which status you need to be consistent after the first random generated. For always random status behavior skip this.
 };
-apiInstance.getStatus(ownerId, flagId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+apiInstance.getStatus(ownerId, flagId, opts).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -64,5 +63,5 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: text/plain, application/json
+- **Accept**: text/html, application/json
 
