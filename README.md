@@ -36,15 +36,12 @@ const opts = {
   'segment': "status", // {String} The segment to get status from. Required for multi-segment flags. For single segment flag skip this.
   'key': "key_example" // {String} An identifier to be a key to associate the status with. This is used on flag which status you need to be consistent after the first random generated. For always random status behavior skip this.
 };
-const callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('Flag status: ' + data.value);
-  }
-};
+api.getStatus(ownerId, flagId, opts).then(function(data) {
+  console.log('API called successfully. Returned data: ' + data);
+}, function(error) {
+  console.error(error);
+});
 
-api.getStatus(ownerId, flagId, opts, callback);
 
 ```
 

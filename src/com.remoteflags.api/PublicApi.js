@@ -18,7 +18,7 @@ import Status from '../com.remoteflags.model/Status';
 /**
 * Public service.
 * @module com.remoteflags.api/PublicApi
-* @version 1.0.0
+* @version 1.0.6
 */
 export default class PublicApi {
 
@@ -34,13 +34,6 @@ export default class PublicApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the getStatus operation.
-     * @callback module:com.remoteflags.api/PublicApi~getStatusCallback
-     * @param {String} error Error message, if any.
-     * @param {module:com.remoteflags.model/Status} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Get a flag status.
@@ -50,10 +43,9 @@ export default class PublicApi {
      * @param {Object} opts Optional parameters
      * @param {String} opts.segment The segment to get status from. Required for multi-segment flags. For single segment flag skip this.
      * @param {String} opts.key An identifier to be a key to associate the status with. This is used on flag which status you need to be consistent after the first random generated. For always random status behavior skip this.
-     * @param {module:com.remoteflags.api/PublicApi~getStatusCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:com.remoteflags.model/Status}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:com.remoteflags.model/Status} and HTTP response
      */
-    getStatus(ownerId, flagId, opts, callback) {
+    getStatusWithHttpInfo(ownerId, flagId, opts) {
       opts = opts || {};
       let postBody = null;
       // verify the required parameter 'ownerId' is set
@@ -80,13 +72,30 @@ export default class PublicApi {
 
       let authNames = ['RemoteFlagsAuthorizer'];
       let contentTypes = [];
-      let accepts = ['text/plain', 'application/json'];
+      let accepts = ['text/html', 'application/json'];
       let returnType = Status;
       return this.apiClient.callApi(
         '/status/owner/{ownerId}/flag/{flagId}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Get a flag status.
+     * Use this operation to get a flag status from remoteflags.
+     * @param {String} ownerId OwnerID to fetch status for
+     * @param {String} flagId FlagId to fetch status for
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.segment The segment to get status from. Required for multi-segment flags. For single segment flag skip this.
+     * @param {String} opts.key An identifier to be a key to associate the status with. This is used on flag which status you need to be consistent after the first random generated. For always random status behavior skip this.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:com.remoteflags.model/Status}
+     */
+    getStatus(ownerId, flagId, opts) {
+      return this.getStatusWithHttpInfo(ownerId, flagId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 
