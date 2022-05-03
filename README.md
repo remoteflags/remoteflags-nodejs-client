@@ -51,12 +51,16 @@ All URIs are relative to *https://api.remoteflags.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*RemoteflagsNodejsClient.PublicApi* | [**getFlagUsage**](docs/PublicApi.md#getFlagUsage) | **GET** /usage/owner/{ownerId}/flag/{flagId} | Get a flag usage data.
+*RemoteflagsNodejsClient.PublicApi* | [**getOwnerUsage**](docs/PublicApi.md#getOwnerUsage) | **GET** /usage/owner/{ownerId} | Get usage data for an owner.
 *RemoteflagsNodejsClient.PublicApi* | [**getStatus**](docs/PublicApi.md#getStatus) | **GET** /status/owner/{ownerId}/flag/{flagId} | Get a flag status.
 
 
 ## Documentation for Models
 
  - [RemoteflagsNodejsClient.Status](docs/Status.md)
+ - [RemoteflagsNodejsClient.Usage](docs/Usage.md)
+ - [RemoteflagsNodejsClient.UsageRequestsPerMonth](docs/UsageRequestsPerMonth.md)
 
 
 ## Documentation for Authorization

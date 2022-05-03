@@ -7,6 +7,8 @@ exports["default"] = void 0;
 
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 
+var _UsageRequestsPerMonth = _interopRequireDefault(require("./UsageRequestsPerMonth"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -16,20 +18,21 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 
 /**
- * The Status model module.
- * @module com.remoteflags.model/Status
+ * The Usage model module.
+ * @module com.remoteflags.model/Usage
  * @version 1.0.7
  */
-var Status = /*#__PURE__*/function () {
+var Usage = /*#__PURE__*/function () {
   /**
-   * Constructs a new <code>Status</code>.
-   * @alias module:com.remoteflags.model/Status
-   * @param value {String} The current flag value as set at remoteflags.com 
+   * Constructs a new <code>Usage</code>.
+   * @alias module:com.remoteflags.model/Usage
+   * @param requests {Number} Returned sum of requests
+   * @param requestsPerMonth {Array.<module:com.remoteflags.model/UsageRequestsPerMonth>} Requests per month
    */
-  function Status(value) {
-    _classCallCheck(this, Status);
+  function Usage(requests, requestsPerMonth) {
+    _classCallCheck(this, Usage);
 
-    Status.initialize(this, value);
+    Usage.initialize(this, requests, requestsPerMonth);
   }
   /**
    * Initializes the fields of this object.
@@ -38,27 +41,32 @@ var Status = /*#__PURE__*/function () {
    */
 
 
-  _createClass(Status, null, [{
+  _createClass(Usage, null, [{
     key: "initialize",
-    value: function initialize(obj, value) {
-      obj['value'] = value;
+    value: function initialize(obj, requests, requestsPerMonth) {
+      obj['requests'] = requests;
+      obj['requestsPerMonth'] = requestsPerMonth;
     }
     /**
-     * Constructs a <code>Status</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>Usage</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:com.remoteflags.model/Status} obj Optional instance to populate.
-     * @return {module:com.remoteflags.model/Status} The populated <code>Status</code> instance.
+     * @param {module:com.remoteflags.model/Usage} obj Optional instance to populate.
+     * @return {module:com.remoteflags.model/Usage} The populated <code>Usage</code> instance.
      */
 
   }, {
     key: "constructFromObject",
     value: function constructFromObject(data, obj) {
       if (data) {
-        obj = obj || new Status();
+        obj = obj || new Usage();
 
-        if (data.hasOwnProperty('value')) {
-          obj['value'] = _ApiClient["default"].convertToType(data['value'], 'String');
+        if (data.hasOwnProperty('requests')) {
+          obj['requests'] = _ApiClient["default"].convertToType(data['requests'], 'Number');
+        }
+
+        if (data.hasOwnProperty('requestsPerMonth')) {
+          obj['requestsPerMonth'] = _ApiClient["default"].convertToType(data['requestsPerMonth'], [_UsageRequestsPerMonth["default"]]);
         }
       }
 
@@ -66,14 +74,20 @@ var Status = /*#__PURE__*/function () {
     }
   }]);
 
-  return Status;
+  return Usage;
 }();
 /**
- * The current flag value as set at remoteflags.com 
- * @member {String} value
+ * Returned sum of requests
+ * @member {Number} requests
  */
 
 
-Status.prototype['value'] = undefined;
-var _default = Status;
+Usage.prototype['requests'] = undefined;
+/**
+ * Requests per month
+ * @member {Array.<module:com.remoteflags.model/UsageRequestsPerMonth>} requestsPerMonth
+ */
+
+Usage.prototype['requestsPerMonth'] = undefined;
+var _default = Usage;
 exports["default"] = _default;

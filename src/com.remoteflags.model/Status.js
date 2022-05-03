@@ -16,13 +16,13 @@ import ApiClient from '../ApiClient';
 /**
  * The Status model module.
  * @module com.remoteflags.model/Status
- * @version 1.0.6
+ * @version 1.0.7
  */
 class Status {
     /**
      * Constructs a new <code>Status</code>.
      * @alias module:com.remoteflags.model/Status
-     * @param value {String} 
+     * @param value {String} The current flag value as set at remoteflags.com 
      */
     constructor(value) { 
         
@@ -60,6 +60,7 @@ class Status {
 }
 
 /**
+ * The current flag value as set at remoteflags.com 
  * @member {String} value
  */
 Status.prototype['value'] = undefined;
