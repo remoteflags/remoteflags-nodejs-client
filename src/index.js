@@ -14,6 +14,8 @@
 
 import ApiClient from './ApiClient';
 import Status from './com.remoteflags.model/Status';
+import Usage from './com.remoteflags.model/Usage';
+import UsageRequestsPerMonth from './com.remoteflags.model/UsageRequestsPerMonth';
 import PublicApi from './com.remoteflags.api/PublicApi';
 
 
@@ -46,7 +48,7 @@ import PublicApi from './com.remoteflags.api/PublicApi';
 * </pre>
 * </p>
 * @module index
-* @version 1.0.6
+* @version 1.0.7
 */
 export {
     /**
@@ -60,6 +62,18 @@ export {
      * @property {module:com.remoteflags.model/Status}
      */
     Status,
+
+    /**
+     * The Usage model constructor.
+     * @property {module:com.remoteflags.model/Usage}
+     */
+    Usage,
+
+    /**
+     * The UsageRequestsPerMonth model constructor.
+     * @property {module:com.remoteflags.model/UsageRequestsPerMonth}
+     */
+    UsageRequestsPerMonth,
 
     /**
     * The PublicApi service constructor.

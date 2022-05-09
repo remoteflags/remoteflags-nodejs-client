@@ -14,11 +14,12 @@
 
 import ApiClient from "../ApiClient";
 import Status from '../com.remoteflags.model/Status';
+import Usage from '../com.remoteflags.model/Usage';
 
 /**
 * Public service.
 * @module com.remoteflags.api/PublicApi
-* @version 1.0.6
+* @version 1.0.7
 */
 export default class PublicApi {
 
@@ -33,6 +34,127 @@ export default class PublicApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+
+    /**
+     * Get a flag usage data.
+     * Use this operation to get flag usage data from remoteflags.
+     * @param {String} ownerId OwnerID to fetch usage for
+     * @param {String} flagId FlagId to fetch usage for
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.year Year to get usage from. If skipped, will get all usage.
+     * @param {Number} opts.month Month to get usage from. If skipped, will get yearly usage.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:com.remoteflags.model/Usage} and HTTP response
+     */
+    getFlagUsageWithHttpInfo(ownerId, flagId, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'ownerId' is set
+      if (ownerId === undefined || ownerId === null) {
+        throw new Error("Missing the required parameter 'ownerId' when calling getFlagUsage");
+      }
+      // verify the required parameter 'flagId' is set
+      if (flagId === undefined || flagId === null) {
+        throw new Error("Missing the required parameter 'flagId' when calling getFlagUsage");
+      }
+
+      let pathParams = {
+        'ownerId': ownerId,
+        'flagId': flagId
+      };
+      let queryParams = {
+        'year': opts['year'],
+        'month': opts['month']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['RemoteFlagsAuthorizer'];
+      let contentTypes = [];
+      let accepts = ['text/html', 'application/json'];
+      let returnType = Usage;
+      return this.apiClient.callApi(
+        '/usage/owner/{ownerId}/flag/{flagId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get a flag usage data.
+     * Use this operation to get flag usage data from remoteflags.
+     * @param {String} ownerId OwnerID to fetch usage for
+     * @param {String} flagId FlagId to fetch usage for
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.year Year to get usage from. If skipped, will get all usage.
+     * @param {Number} opts.month Month to get usage from. If skipped, will get yearly usage.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:com.remoteflags.model/Usage}
+     */
+    getFlagUsage(ownerId, flagId, opts) {
+      return this.getFlagUsageWithHttpInfo(ownerId, flagId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Get usage data for an owner.
+     * Use this operation to get owner usage data from remoteflags.
+     * @param {String} ownerId OwnerID to fetch usage for
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.year Year to get usage from. If skipped, will get all usage.
+     * @param {Number} opts.month Month to get usage from. If skipped, will get yearly usage.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:com.remoteflags.model/Usage} and HTTP response
+     */
+    getOwnerUsageWithHttpInfo(ownerId, opts) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'ownerId' is set
+      if (ownerId === undefined || ownerId === null) {
+        throw new Error("Missing the required parameter 'ownerId' when calling getOwnerUsage");
+      }
+
+      let pathParams = {
+        'ownerId': ownerId
+      };
+      let queryParams = {
+        'year': opts['year'],
+        'month': opts['month']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['RemoteFlagsAuthorizer'];
+      let contentTypes = [];
+      let accepts = ['text/html', 'application/json'];
+      let returnType = Usage;
+      return this.apiClient.callApi(
+        '/usage/owner/{ownerId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Get usage data for an owner.
+     * Use this operation to get owner usage data from remoteflags.
+     * @param {String} ownerId OwnerID to fetch usage for
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.year Year to get usage from. If skipped, will get all usage.
+     * @param {Number} opts.month Month to get usage from. If skipped, will get yearly usage.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:com.remoteflags.model/Usage}
+     */
+    getOwnerUsage(ownerId, opts) {
+      return this.getOwnerUsageWithHttpInfo(ownerId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
 
 
     /**
@@ -93,6 +215,152 @@ export default class PublicApi {
      */
     getStatus(ownerId, flagId, opts) {
       return this.getStatusWithHttpInfo(ownerId, flagId, opts)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * @param {String} ownerId 
+     * @param {String} flagId 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     */
+    statusOwnerOwnerIdFlagFlagIdOptionsWithHttpInfo(ownerId, flagId) {
+      let postBody = null;
+      // verify the required parameter 'ownerId' is set
+      if (ownerId === undefined || ownerId === null) {
+        throw new Error("Missing the required parameter 'ownerId' when calling statusOwnerOwnerIdFlagFlagIdOptions");
+      }
+      // verify the required parameter 'flagId' is set
+      if (flagId === undefined || flagId === null) {
+        throw new Error("Missing the required parameter 'flagId' when calling statusOwnerOwnerIdFlagFlagIdOptions");
+      }
+
+      let pathParams = {
+        'ownerId': ownerId,
+        'flagId': flagId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/status/owner/{ownerId}/flag/{flagId}', 'OPTIONS',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * @param {String} ownerId 
+     * @param {String} flagId 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     */
+    statusOwnerOwnerIdFlagFlagIdOptions(ownerId, flagId) {
+      return this.statusOwnerOwnerIdFlagFlagIdOptionsWithHttpInfo(ownerId, flagId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * @param {String} ownerId 
+     * @param {String} flagId 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     */
+    usageOwnerOwnerIdFlagFlagIdOptionsWithHttpInfo(ownerId, flagId) {
+      let postBody = null;
+      // verify the required parameter 'ownerId' is set
+      if (ownerId === undefined || ownerId === null) {
+        throw new Error("Missing the required parameter 'ownerId' when calling usageOwnerOwnerIdFlagFlagIdOptions");
+      }
+      // verify the required parameter 'flagId' is set
+      if (flagId === undefined || flagId === null) {
+        throw new Error("Missing the required parameter 'flagId' when calling usageOwnerOwnerIdFlagFlagIdOptions");
+      }
+
+      let pathParams = {
+        'ownerId': ownerId,
+        'flagId': flagId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/usage/owner/{ownerId}/flag/{flagId}', 'OPTIONS',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * @param {String} ownerId 
+     * @param {String} flagId 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     */
+    usageOwnerOwnerIdFlagFlagIdOptions(ownerId, flagId) {
+      return this.usageOwnerOwnerIdFlagFlagIdOptionsWithHttpInfo(ownerId, flagId)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * @param {String} ownerId 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
+     */
+    usageOwnerOwnerIdOptionsWithHttpInfo(ownerId) {
+      let postBody = null;
+      // verify the required parameter 'ownerId' is set
+      if (ownerId === undefined || ownerId === null) {
+        throw new Error("Missing the required parameter 'ownerId' when calling usageOwnerOwnerIdOptions");
+      }
+
+      let pathParams = {
+        'ownerId': ownerId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/usage/owner/{ownerId}', 'OPTIONS',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * @param {String} ownerId 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     */
+    usageOwnerOwnerIdOptions(ownerId) {
+      return this.usageOwnerOwnerIdOptionsWithHttpInfo(ownerId)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
