@@ -4,6 +4,8 @@ All URIs are relative to *https://api.remoteflags.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**devToggleIdOptions**](PublicApi.md#devToggleIdOptions) | **OPTIONS** /dev-toggle/{id} | 
+[**get1ClickStatus**](PublicApi.md#get1ClickStatus) | **GET** /dev-toggle/{id} | Get a flag status for 1 click toggle.
 [**getFlagUsage**](PublicApi.md#getFlagUsage) | **GET** /usage/owner/{ownerId}/flag/{flagId} | Get a flag usage data.
 [**getOwnerUsage**](PublicApi.md#getOwnerUsage) | **GET** /usage/owner/{ownerId} | Get usage data for an owner.
 [**getStatus**](PublicApi.md#getStatus) | **GET** /status/owner/{ownerId}/flag/{flagId} | Get a flag status.
@@ -11,6 +13,90 @@ Method | HTTP request | Description
 [**usageOwnerOwnerIdFlagFlagIdOptions**](PublicApi.md#usageOwnerOwnerIdFlagFlagIdOptions) | **OPTIONS** /usage/owner/{ownerId}/flag/{flagId} | 
 [**usageOwnerOwnerIdOptions**](PublicApi.md#usageOwnerOwnerIdOptions) | **OPTIONS** /usage/owner/{ownerId} | 
 
+## devToggleIdOptions
+
+> Object devToggleIdOptions(id)
+
+
+
+### Example
+
+```javascript
+import RemoteflagsNodejsClient from 'remoteflags-nodejs-client';
+
+let apiInstance = new RemoteflagsNodejsClient.PublicApi();
+let id = "id_example"; // String | 
+apiInstance.devToggleIdOptions(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get1ClickStatus
+
+> Status get1ClickStatus(id)
+
+Get a flag status for 1 click toggle.
+
+Use this operation to get a flag status from remoteflags for 1 click toggle.
+
+### Example
+
+```javascript
+import RemoteflagsNodejsClient from 'remoteflags-nodejs-client';
+
+let apiInstance = new RemoteflagsNodejsClient.PublicApi();
+let id = "id_example"; // String | Id to fetch status for
+apiInstance.get1ClickStatus(id).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Id to fetch status for | 
+
+### Return type
+
+[**Status**](Status.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/html, application/json
 
 
 ## getFlagUsage
@@ -36,8 +122,8 @@ let apiInstance = new RemoteflagsNodejsClient.PublicApi();
 let ownerId = "ownerId_example"; // String | OwnerID to fetch usage for
 let flagId = "flagId_example"; // String | FlagId to fetch usage for
 let opts = {
-  'year': 56, // Number | Year to get usage from. If skipped, will get all usage.
-  'month': 56 // Number | Month to get usage from. If skipped, will get yearly usage.
+  'from': '2022-03-01T15:01:01Z', // String | Get usage data starting from this timestamp. If skipped, will default to 30 days ago.
+  'to': '2022-03-15T15:01:01Z' // String | Get usage data ending on this timestamp. If skipped, will default to current date.
 };
 apiInstance.getFlagUsage(ownerId, flagId, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -54,8 +140,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ownerId** | **String**| OwnerID to fetch usage for | 
  **flagId** | **String**| FlagId to fetch usage for | 
- **year** | **Number**| Year to get usage from. If skipped, will get all usage. | [optional] 
- **month** | **Number**| Month to get usage from. If skipped, will get yearly usage. | [optional] 
+ **from** | **String**| Get usage data starting from this timestamp. If skipped, will default to 30 days ago. | [optional] 
+ **to** | **String**| Get usage data ending on this timestamp. If skipped, will default to current date. | [optional] 
 
 ### Return type
 
@@ -93,8 +179,8 @@ RemoteFlagsAuthorizer.apiKey = 'YOUR API KEY';
 let apiInstance = new RemoteflagsNodejsClient.PublicApi();
 let ownerId = "ownerId_example"; // String | OwnerID to fetch usage for
 let opts = {
-  'year': 56, // Number | Year to get usage from. If skipped, will get all usage.
-  'month': 56 // Number | Month to get usage from. If skipped, will get yearly usage.
+  'from': '2022-03-01T15:01:01Z', // String | Get usage data starting from this timestamp. If skipped, will default to 30 days ago.
+  'to': '2022-03-15T15:01:01Z' // String | Get usage data ending on this timestamp. If skipped, will default to current date.
 };
 apiInstance.getOwnerUsage(ownerId, opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -110,8 +196,8 @@ apiInstance.getOwnerUsage(ownerId, opts).then((data) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ownerId** | **String**| OwnerID to fetch usage for | 
- **year** | **Number**| Year to get usage from. If skipped, will get all usage. | [optional] 
- **month** | **Number**| Month to get usage from. If skipped, will get yearly usage. | [optional] 
+ **from** | **String**| Get usage data starting from this timestamp. If skipped, will default to 30 days ago. | [optional] 
+ **to** | **String**| Get usage data ending on this timestamp. If skipped, will default to current date. | [optional] 
 
 ### Return type
 

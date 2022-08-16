@@ -51,16 +51,21 @@ All URIs are relative to *https://api.remoteflags.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*RemoteflagsNodejsClient.PublicApi* | [**devToggleIdOptions**](docs/PublicApi.md#devToggleIdOptions) | **OPTIONS** /dev-toggle/{id} | 
+*RemoteflagsNodejsClient.PublicApi* | [**get1ClickStatus**](docs/PublicApi.md#get1ClickStatus) | **GET** /dev-toggle/{id} | Get a flag status for 1 click toggle.
 *RemoteflagsNodejsClient.PublicApi* | [**getFlagUsage**](docs/PublicApi.md#getFlagUsage) | **GET** /usage/owner/{ownerId}/flag/{flagId} | Get a flag usage data.
 *RemoteflagsNodejsClient.PublicApi* | [**getOwnerUsage**](docs/PublicApi.md#getOwnerUsage) | **GET** /usage/owner/{ownerId} | Get usage data for an owner.
 *RemoteflagsNodejsClient.PublicApi* | [**getStatus**](docs/PublicApi.md#getStatus) | **GET** /status/owner/{ownerId}/flag/{flagId} | Get a flag status.
+*RemoteflagsNodejsClient.PublicApi* | [**statusOwnerOwnerIdFlagFlagIdOptions**](docs/PublicApi.md#statusOwnerOwnerIdFlagFlagIdOptions) | **OPTIONS** /status/owner/{ownerId}/flag/{flagId} | 
+*RemoteflagsNodejsClient.PublicApi* | [**usageOwnerOwnerIdFlagFlagIdOptions**](docs/PublicApi.md#usageOwnerOwnerIdFlagFlagIdOptions) | **OPTIONS** /usage/owner/{ownerId}/flag/{flagId} | 
+*RemoteflagsNodejsClient.PublicApi* | [**usageOwnerOwnerIdOptions**](docs/PublicApi.md#usageOwnerOwnerIdOptions) | **OPTIONS** /usage/owner/{ownerId} | 
 
 
 ## Documentation for Models
 
  - [RemoteflagsNodejsClient.Status](docs/Status.md)
  - [RemoteflagsNodejsClient.Usage](docs/Usage.md)
- - [RemoteflagsNodejsClient.UsageRequestsPerMonth](docs/UsageRequestsPerMonth.md)
+ - [RemoteflagsNodejsClient.UsageRequestInner](docs/UsageRequestInner.md)
 
 
 ## Documentation for Authorization
@@ -73,4 +78,3 @@ Class | Method | HTTP request | Description
 - **Type**: API key
 - **API key parameter name**: authorizationToken
 - **Location**: HTTP header
-

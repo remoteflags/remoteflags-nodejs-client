@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**requests** | **Number** | Returned sum of requests | 
-**requestsPerMonth** | [**[UsageRequestsPerMonth]**](UsageRequestsPerMonth.md) | Requests per month | 
+**request** | [**[UsageRequestInner]**](UsageRequestInner.md) | Array of requests | 
 
 

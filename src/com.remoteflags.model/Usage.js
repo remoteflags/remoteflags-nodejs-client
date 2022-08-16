@@ -12,23 +12,22 @@
  */
 
 import ApiClient from '../ApiClient';
-import UsageRequestsPerMonth from './UsageRequestsPerMonth';
+import UsageRequestInner from './UsageRequestInner';
 
 /**
  * The Usage model module.
  * @module com.remoteflags.model/Usage
- * @version 1.0.7
+ * @version 1.0.8
  */
 class Usage {
     /**
      * Constructs a new <code>Usage</code>.
      * @alias module:com.remoteflags.model/Usage
-     * @param requests {Number} Returned sum of requests
-     * @param requestsPerMonth {Array.<module:com.remoteflags.model/UsageRequestsPerMonth>} Requests per month
+     * @param request {Array.<module:com.remoteflags.model/UsageRequestInner>} Array of requests
      */
-    constructor(requests, requestsPerMonth) { 
+    constructor(request) { 
         
-        Usage.initialize(this, requests, requestsPerMonth);
+        Usage.initialize(this, request);
     }
 
     /**
@@ -36,9 +35,8 @@ class Usage {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, requests, requestsPerMonth) { 
-        obj['requests'] = requests;
-        obj['requestsPerMonth'] = requestsPerMonth;
+    static initialize(obj, request) { 
+        obj['request'] = request;
     }
 
     /**
@@ -52,11 +50,8 @@ class Usage {
         if (data) {
             obj = obj || new Usage();
 
-            if (data.hasOwnProperty('requests')) {
-                obj['requests'] = ApiClient.convertToType(data['requests'], 'Number');
-            }
-            if (data.hasOwnProperty('requestsPerMonth')) {
-                obj['requestsPerMonth'] = ApiClient.convertToType(data['requestsPerMonth'], [UsageRequestsPerMonth]);
+            if (data.hasOwnProperty('request')) {
+                obj['request'] = ApiClient.convertToType(data['request'], [UsageRequestInner]);
             }
         }
         return obj;
@@ -66,16 +61,10 @@ class Usage {
 }
 
 /**
- * Returned sum of requests
- * @member {Number} requests
+ * Array of requests
+ * @member {Array.<module:com.remoteflags.model/UsageRequestInner>} request
  */
-Usage.prototype['requests'] = undefined;
-
-/**
- * Requests per month
- * @member {Array.<module:com.remoteflags.model/UsageRequestsPerMonth>} requestsPerMonth
- */
-Usage.prototype['requestsPerMonth'] = undefined;
+Usage.prototype['request'] = undefined;
 
 
 

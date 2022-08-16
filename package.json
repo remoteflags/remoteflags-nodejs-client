@@ -1,6 +1,6 @@
 {
   "name": "remoteflags-nodejs-client",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Remote Flags nodejs client. Access Public API for integration with Remote Flags.",
   "license": "Apache-2.0",
   "main": "dist/index.js",

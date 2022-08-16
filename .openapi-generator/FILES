@@ -5,7 +5,7 @@ README.md
 docs/PublicApi.md
 docs/Status.md
 docs/Usage.md
-docs/UsageRequestsPerMonth.md
+docs/UsageRequestInner.md
 git_push.sh
 mocha.opts
 package.json
@@ -13,5 +13,6 @@ src/ApiClient.js
 src/com.remoteflags.api/PublicApi.js
 src/com.remoteflags.model/Status.js
 src/com.remoteflags.model/Usage.js
-src/com.remoteflags.model/UsageRequestsPerMonth.js
+src/com.remoteflags.model/UsageRequestInner.js
 src/index.js
+test/model/UsageRequestInner.spec.js

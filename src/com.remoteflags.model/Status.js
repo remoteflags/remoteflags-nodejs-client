@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The Status model module.
  * @module com.remoteflags.model/Status
- * @version 1.0.7
+ * @version 1.0.8
  */
 class Status {
     /**
