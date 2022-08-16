@@ -27,10 +27,10 @@ Object.defineProperty(exports, "Usage", {
     return _Usage["default"];
   }
 });
-Object.defineProperty(exports, "UsageRequestsPerMonth", {
+Object.defineProperty(exports, "UsageRequestInner", {
   enumerable: true,
   get: function get() {
-    return _UsageRequestsPerMonth["default"];
+    return _UsageRequestInner["default"];
   }
 });
 
@@ -40,7 +40,7 @@ var _Status = _interopRequireDefault(require("./com.remoteflags.model/Status"));
 
 var _Usage = _interopRequireDefault(require("./com.remoteflags.model/Usage"));
 
-var _UsageRequestsPerMonth = _interopRequireDefault(require("./com.remoteflags.model/UsageRequestsPerMonth"));
+var _UsageRequestInner = _interopRequireDefault(require("./com.remoteflags.model/UsageRequestInner"));
 
 var _PublicApi = _interopRequireDefault(require("./com.remoteflags.api/PublicApi"));
 

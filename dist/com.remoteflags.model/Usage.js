@@ -7,7 +7,7 @@ exports["default"] = void 0;
 
 var _ApiClient = _interopRequireDefault(require("../ApiClient"));
 
-var _UsageRequestsPerMonth = _interopRequireDefault(require("./UsageRequestsPerMonth"));
+var _UsageRequestInner = _interopRequireDefault(require("./UsageRequestInner"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -20,19 +20,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 /**
  * The Usage model module.
  * @module com.remoteflags.model/Usage
- * @version 1.0.7
+ * @version 1.0.8
  */
 var Usage = /*#__PURE__*/function () {
   /**
    * Constructs a new <code>Usage</code>.
    * @alias module:com.remoteflags.model/Usage
-   * @param requests {Number} Returned sum of requests
-   * @param requestsPerMonth {Array.<module:com.remoteflags.model/UsageRequestsPerMonth>} Requests per month
+   * @param request {Array.<module:com.remoteflags.model/UsageRequestInner>} Array of requests
    */
-  function Usage(requests, requestsPerMonth) {
+  function Usage(request) {
     _classCallCheck(this, Usage);
 
-    Usage.initialize(this, requests, requestsPerMonth);
+    Usage.initialize(this, request);
   }
   /**
    * Initializes the fields of this object.
@@ -43,9 +42,8 @@ var Usage = /*#__PURE__*/function () {
 
   _createClass(Usage, null, [{
     key: "initialize",
-    value: function initialize(obj, requests, requestsPerMonth) {
-      obj['requests'] = requests;
-      obj['requestsPerMonth'] = requestsPerMonth;
+    value: function initialize(obj, request) {
+      obj['request'] = request;
     }
     /**
      * Constructs a <code>Usage</code> from a plain JavaScript object, optionally creating a new instance.
@@ -61,12 +59,8 @@ var Usage = /*#__PURE__*/function () {
       if (data) {
         obj = obj || new Usage();
 
-        if (data.hasOwnProperty('requests')) {
-          obj['requests'] = _ApiClient["default"].convertToType(data['requests'], 'Number');
-        }
-
-        if (data.hasOwnProperty('requestsPerMonth')) {
-          obj['requestsPerMonth'] = _ApiClient["default"].convertToType(data['requestsPerMonth'], [_UsageRequestsPerMonth["default"]]);
+        if (data.hasOwnProperty('request')) {
+          obj['request'] = _ApiClient["default"].convertToType(data['request'], [_UsageRequestInner["default"]]);
         }
       }
 
@@ -77,17 +71,11 @@ var Usage = /*#__PURE__*/function () {
   return Usage;
 }();
 /**
- * Returned sum of requests
- * @member {Number} requests
+ * Array of requests
+ * @member {Array.<module:com.remoteflags.model/UsageRequestInner>} request
  */
 
 
-Usage.prototype['requests'] = undefined;
-/**
- * Requests per month
- * @member {Array.<module:com.remoteflags.model/UsageRequestsPerMonth>} requestsPerMonth
- */
-
-Usage.prototype['requestsPerMonth'] = undefined;
+Usage.prototype['request'] = undefined;
 var _default = Usage;
 exports["default"] = _default;

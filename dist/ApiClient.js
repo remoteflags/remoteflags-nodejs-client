@@ -21,7 +21,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
 * @module ApiClient
-* @version 1.0.7
+* @version 1.0.8
 */
 
 /**
@@ -67,7 +67,7 @@ var ApiClient = /*#__PURE__*/function () {
      */
 
     this.defaultHeaders = {
-      'User-Agent': 'OpenAPI-Generator/1.0.7/Javascript'
+      'User-Agent': 'OpenAPI-Generator/1.0.8/Javascript'
     };
     /**
      * The default HTTP timeout for all API calls.
@@ -512,7 +512,7 @@ var ApiClient = /*#__PURE__*/function () {
       if (returnType === 'Blob') {
         request.responseType('blob');
       } else if (returnType === 'String') {
-        request.responseType('string');
+        request.responseType('text');
       } // Attach previously saved cookies, if enabled
 
 

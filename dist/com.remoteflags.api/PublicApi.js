@@ -22,7 +22,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 /**
 * Public service.
 * @module com.remoteflags.api/PublicApi
-* @version 1.0.7
+* @version 1.0.8
 */
 var PublicApi = /*#__PURE__*/function () {
   /**
@@ -38,18 +38,98 @@ var PublicApi = /*#__PURE__*/function () {
     this.apiClient = apiClient || _ApiClient["default"].instance;
   }
   /**
-   * Get a flag usage data.
-   * Use this operation to get flag usage data from remoteflags.
-   * @param {String} ownerId OwnerID to fetch usage for
-   * @param {String} flagId FlagId to fetch usage for
-   * @param {Object} opts Optional parameters
-   * @param {Number} opts.year Year to get usage from. If skipped, will get all usage.
-   * @param {Number} opts.month Month to get usage from. If skipped, will get yearly usage.
-   * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:com.remoteflags.model/Usage} and HTTP response
+   * @param {String} id 
+   * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Object} and HTTP response
    */
 
 
   _createClass(PublicApi, [{
+    key: "devToggleIdOptionsWithHttpInfo",
+    value: function devToggleIdOptionsWithHttpInfo(id) {
+      var postBody = null; // verify the required parameter 'id' is set
+
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling devToggleIdOptions");
+      }
+
+      var pathParams = {
+        'id': id
+      };
+      var queryParams = {};
+      var headerParams = {};
+      var formParams = {};
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = Object;
+      return this.apiClient.callApi('/dev-toggle/{id}', 'OPTIONS', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
+    }
+    /**
+     * @param {String} id 
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Object}
+     */
+
+  }, {
+    key: "devToggleIdOptions",
+    value: function devToggleIdOptions(id) {
+      return this.devToggleIdOptionsWithHttpInfo(id).then(function (response_and_data) {
+        return response_and_data.data;
+      });
+    }
+    /**
+     * Get a flag status for 1 click toggle.
+     * Use this operation to get a flag status from remoteflags for 1 click toggle.
+     * @param {String} id Id to fetch status for
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:com.remoteflags.model/Status} and HTTP response
+     */
+
+  }, {
+    key: "get1ClickStatusWithHttpInfo",
+    value: function get1ClickStatusWithHttpInfo(id) {
+      var postBody = null; // verify the required parameter 'id' is set
+
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling get1ClickStatus");
+      }
+
+      var pathParams = {
+        'id': id
+      };
+      var queryParams = {};
+      var headerParams = {};
+      var formParams = {};
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = ['text/html', 'application/json'];
+      var returnType = _Status["default"];
+      return this.apiClient.callApi('/dev-toggle/{id}', 'GET', pathParams, queryParams, headerParams, formParams, postBody, authNames, contentTypes, accepts, returnType, null);
+    }
+    /**
+     * Get a flag status for 1 click toggle.
+     * Use this operation to get a flag status from remoteflags for 1 click toggle.
+     * @param {String} id Id to fetch status for
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:com.remoteflags.model/Status}
+     */
+
+  }, {
+    key: "get1ClickStatus",
+    value: function get1ClickStatus(id) {
+      return this.get1ClickStatusWithHttpInfo(id).then(function (response_and_data) {
+        return response_and_data.data;
+      });
+    }
+    /**
+     * Get a flag usage data.
+     * Use this operation to get flag usage data from remoteflags.
+     * @param {String} ownerId OwnerID to fetch usage for
+     * @param {String} flagId FlagId to fetch usage for
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.from Get usage data starting from this timestamp. If skipped, will default to 30 days ago.
+     * @param {String} opts.to Get usage data ending on this timestamp. If skipped, will default to current date.
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:com.remoteflags.model/Usage} and HTTP response
+     */
+
+  }, {
     key: "getFlagUsageWithHttpInfo",
     value: function getFlagUsageWithHttpInfo(ownerId, flagId, opts) {
       opts = opts || {};
@@ -69,8 +149,8 @@ var PublicApi = /*#__PURE__*/function () {
         'flagId': flagId
       };
       var queryParams = {
-        'year': opts['year'],
-        'month': opts['month']
+        'from': opts['from'],
+        'to': opts['to']
       };
       var headerParams = {};
       var formParams = {};
@@ -86,8 +166,8 @@ var PublicApi = /*#__PURE__*/function () {
      * @param {String} ownerId OwnerID to fetch usage for
      * @param {String} flagId FlagId to fetch usage for
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.year Year to get usage from. If skipped, will get all usage.
-     * @param {Number} opts.month Month to get usage from. If skipped, will get yearly usage.
+     * @param {String} opts.from Get usage data starting from this timestamp. If skipped, will default to 30 days ago.
+     * @param {String} opts.to Get usage data ending on this timestamp. If skipped, will default to current date.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:com.remoteflags.model/Usage}
      */
 
@@ -103,8 +183,8 @@ var PublicApi = /*#__PURE__*/function () {
      * Use this operation to get owner usage data from remoteflags.
      * @param {String} ownerId OwnerID to fetch usage for
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.year Year to get usage from. If skipped, will get all usage.
-     * @param {Number} opts.month Month to get usage from. If skipped, will get yearly usage.
+     * @param {String} opts.from Get usage data starting from this timestamp. If skipped, will default to 30 days ago.
+     * @param {String} opts.to Get usage data ending on this timestamp. If skipped, will default to current date.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:com.remoteflags.model/Usage} and HTTP response
      */
 
@@ -122,8 +202,8 @@ var PublicApi = /*#__PURE__*/function () {
         'ownerId': ownerId
       };
       var queryParams = {
-        'year': opts['year'],
-        'month': opts['month']
+        'from': opts['from'],
+        'to': opts['to']
       };
       var headerParams = {};
       var formParams = {};
@@ -138,8 +218,8 @@ var PublicApi = /*#__PURE__*/function () {
      * Use this operation to get owner usage data from remoteflags.
      * @param {String} ownerId OwnerID to fetch usage for
      * @param {Object} opts Optional parameters
-     * @param {Number} opts.year Year to get usage from. If skipped, will get all usage.
-     * @param {Number} opts.month Month to get usage from. If skipped, will get yearly usage.
+     * @param {String} opts.from Get usage data starting from this timestamp. If skipped, will default to 30 days ago.
+     * @param {String} opts.to Get usage data ending on this timestamp. If skipped, will default to current date.
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:com.remoteflags.model/Usage}
      */
 

@@ -18,7 +18,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 /**
  * The Status model module.
  * @module com.remoteflags.model/Status
- * @version 1.0.7
+ * @version 1.0.8
  */
 var Status = /*#__PURE__*/function () {
   /**
