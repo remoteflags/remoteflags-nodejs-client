@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**usageOwnerOwnerIdFlagFlagIdOptions**](PublicApi.md#usageOwnerOwnerIdFlagFlagIdOptions) | **OPTIONS** /usage/owner/{ownerId}/flag/{flagId} | 
 [**usageOwnerOwnerIdOptions**](PublicApi.md#usageOwnerOwnerIdOptions) | **OPTIONS** /usage/owner/{ownerId} | 
 
+
+
 ## devToggleIdOptions
 
 > Object devToggleIdOptions(id)

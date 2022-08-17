@@ -17,7 +17,7 @@ import UsageRequestInner from './UsageRequestInner';
 /**
  * The Usage model module.
  * @module com.remoteflags.model/Usage
- * @version 1.0.8
+ * @version 1.0.9
  */
 class Usage {
     /**

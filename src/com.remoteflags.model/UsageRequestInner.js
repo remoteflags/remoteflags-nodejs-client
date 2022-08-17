@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UsageRequestInner model module.
  * @module com.remoteflags.model/UsageRequestInner
- * @version 1.0.8
+ * @version 1.0.9
  */
 class UsageRequestInner {
     /**
